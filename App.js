@@ -1,25 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
 import { useRef, useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import Form from './Form';
 
 export default function App() {
-   const [input, setinput] = useState('');
+   const [input, setInput] = useState('');
    const [result, setResult] = useState('ket qua');
+
    const ref = useRef();
    return (
       <View style={styles.container}>
+         <Form></Form>
          <TextInput
             style={styles.input}
             ref={ref}
             onChangeText={(input) => {
-               setinput(input);
+               setInput(input);
             }}
             value={input}></TextInput>
          <Button
             title="summit"
             onPress={() => {
                ref.focus;
-               console.log(ref);
                setResult(input);
             }}></Button>
          <Text>{result}</Text>
@@ -36,10 +37,12 @@ const styles = StyleSheet.create({
    },
    input: {
       height: 40,
-      width: 60,
+      width: 100,
       textAlign: 'center',
       backgroundColor: 'azure',
       fontSize: 20,
-      borderColor: 'red',
+      borderColor: 'black',
+      borderWidth: 3,
+      borderRadius: 50,
    },
 });
